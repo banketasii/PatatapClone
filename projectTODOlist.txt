@@ -2,8 +2,7 @@
 Create basic folder structure and files
 Add paperjs
 Add howlerjs
-
-
-@Incomplete
 Refactor code
 Reorder file structure
+
+@Incomplete

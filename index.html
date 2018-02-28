@@ -6,58 +6,16 @@
 		<title>Patatap Clone</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0">
-    
-    <script type="text/javascript" src="assets/js/paper-full.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.core.min.js"></script>
-		<link type="text/css" rel="stylesheet" href="assets/css/patatapclone.css"> 
-        
-    <script type="text/paperscript" canvas="canvas"> 
-      var keyData = {
-        a: {
-          color: "purple",
-          sound: new Howl({src: ['assets/sounds/bubbles.mp3'] })
-        },
-        b: {
-          color: "pink",
-          sound: new Howl({src: ['assets/sounds/clay.mp3'] })
-        }
-      }    
-    
-      var circles = [];
-      
-      function onKeyDown(e){      
-        if(keyData[e.key]){
-          var maxPoint = new Point(view.size.width, view.size.height);
-          var randomPoint = Point.random();
-          var point = maxPoint * randomPoint;
-          var newCircle = new Path.Circle(point, 500);
-          newCircle.fillColor = keyData[e.key].color;
-          keyData[e.key].sound.play();
-          circles.push(newCircle);
-        }
-      }      
-      
-      function onFrame(event){
-        for(var i = 0; i < circles.length; i++){
-          circles[i].fillColor.hue += 1;
-          circles[i].scale(0.9);
-          
-          if(circles[i].area < 1){
-            circles[i].remove(); // remove the circle from the canvas
-            circles.splice(i, 1); // remove the circle from the array
-            i--; // decrement i so that the loop doesn't skip a circle because of .splice()
-          }
-        }
-      }      
-    </script>
-    
-   
-    
-    
+    <link type="text/css" rel="stylesheet" href="assets/css/patatapclone.css"> 
 	</head>
 
 	<body>
     <canvas id="canvas"></canvas>
-		
+    
+		<script type="text/javascript" src="assets/libs/paper-full.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.core.min.js"></script>
+    <script type="text/javascript" src="assets/js/patatap_keyData.js"></script>
+    <script type="text/paperscript" canvas="canvas" src="assets/js/patatap_paper.js"></script>
+    
 	</body>
 </html>
