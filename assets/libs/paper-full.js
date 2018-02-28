@@ -13412,8 +13412,7 @@ var Tool = PaperScopeItem.extend({
 var Http = {
 	request: function(options) {
 		var xhr = new self.XMLHttpRequest();
-		xhr.open((options.method || 'get').toUpperCase(), options.url,
-				Base.pick(options.async, true));
+		xhr.open((options.method || 'get').toUpperCase(), options.url);
 		if (options.mimeType)
 			xhr.overrideMimeType(options.mimeType);
 		xhr.onload = function() {
