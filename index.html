@@ -1,0 +1,38 @@
+<!-- Patatap Clone html-->
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Patatap Clone</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="assets/css/patatapclone.css"> 
+    
+    <script type="text/javascript" src="assets/js/paper-full.js"></script>
+    <script type="text/paperscript" canvas="canvas">
+      var circles = [];
+      
+      function onKeyDown(){
+        var maxPoint = new Point(view.size.width, view.size.height);
+        var randomPoint = Point.random();
+        var point = maxPoint * randomPoint;
+        var newCircle = new Path.Circle(point, 500);
+        newCircle.fillColor = "blue";
+        circles.push(newCircle);
+      }      
+      
+      function onFrame(){
+        for(var i = 0; i < circles.length; i++){
+          circles[i].fillColor.hue += 1;
+          circles[i].scale(0.9);
+        }
+      }
+      
+    </script>
+	</head>
+
+	<body>
+    <canvas id="canvas"></canvas>
+		
+	</body>
+</html>
